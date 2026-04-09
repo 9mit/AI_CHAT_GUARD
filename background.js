@@ -73,7 +73,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 chrome.tabs.onActivated.addListener((activeInfo) => {
   chrome.tabs.get(activeInfo.tabId, (tab) => {
     if (chrome.runtime.lastError) return;
-    if (tab.url) updateActionState(tab.tabId, tab.url);
+    if (tab.url) updateActionState(tab.id, tab.url);
   });
 });
 

@@ -80,18 +80,43 @@ document.addEventListener('DOMContentLoaded', () => {
       
       timeoutId = setTimeout(() => {
         const val = e.target.value;
-        const keywords = val.split(',').map(k => k.trim()).filter(k => k.length > 0);
+        const MAX_KEYWORDS = 50;
+        const MAX_KEYWORD_LENGTH = 100;
+        let keywords = val.split(',').map(k => k.trim()).filter(k => k.length > 0);
+        
+        // Validate: truncate keywords that are too long
+        const oversized = keywords.filter(k => k.length > MAX_KEYWORD_LENGTH);
+        keywords = keywords.map(k => k.substring(0, MAX_KEYWORD_LENGTH));
+        
+        // Validate: cap total keyword count
+        if (keywords.length > MAX_KEYWORDS) {
+          keywords = keywords.slice(0, MAX_KEYWORDS);
+          if (kwMeta) {
+            kwMeta.textContent = `Limited to ${MAX_KEYWORDS} keywords`;
+            kwMeta.className = 'error';
+          }
+          // Update the input to reflect the truncation
+          e.target.value = keywords.join(', ');
+          return;
+        }
+        
+        if (oversized.length > 0 && kwMeta) {
+          kwMeta.textContent = `${oversized.length} keyword(s) truncated to ${MAX_KEYWORD_LENGTH} chars`;
+          kwMeta.className = 'error';
+        }
         
         chrome.storage.local.set({ customKeywords: keywords }, () => {
-          if (kwMeta) {
+          if (kwMeta && oversized.length === 0) {
             kwMeta.textContent = 'Keywords saved successfully';
             kwMeta.className = 'success';
           }
           broadcast('updateKeywords', { keywords });
           
           setTimeout(() => {
-            if(kwMeta && kwMeta.textContent === 'Keywords saved successfully') {
+            if (kwMeta && (kwMeta.textContent === 'Keywords saved successfully' ||
+                kwMeta.textContent.includes('truncated'))) {
               kwMeta.textContent = '';
+              kwMeta.className = '';
             }
           }, 2000);
         });

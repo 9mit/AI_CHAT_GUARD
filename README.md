@@ -11,7 +11,7 @@
 - **Deep Scoped**: Automatically becomes dormant on non-LLM websites to ensure zero interference with your normal browsing.
 
 ### 🧩 React-Safe Architecture
-Unlike simple blur extensions that can break modern web apps (React, Angular, etc.), AI Privacy Guard uses a custom **Floating Redaction Layer**. It never modifies the original DOM text nodes, preventing hydration mismatches and application crashes.
+AI Privacy Guard uses a dual approach: **CSS-based blur** for sidebar privacy (zero DOM modifications) and **safe DOM replacement** for keyword redaction, carefully scoped to avoid interfering with framework-managed components. The extension operates entirely through class toggles and targeted text-node wrapping to minimize hydration conflicts.
 
 ### 🌓 Presentation Mode
 - **Global Blur**: Instantly blur your entire chat history sidebar.

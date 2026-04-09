@@ -56,9 +56,12 @@ function redactKeywords() {
   if (!currentState.isExtensionEnabled || currentState.keywords.length === 0) return;
   
   const keywords = currentState.keywords;
-  // Create an explicit regex that avoids partial word matching where possible, but is case-insensitive
   const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const regex = new RegExp(`\\b(${keywords.map(k => escapeRegExp(k)).join('|')})\\b`, 'gi');
+  const pattern = `\\b(${keywords.map(k => escapeRegExp(k)).join('|')})\\b`;
+  // Non-global regex for stateless test() in acceptNode (avoids lastIndex drift)
+  const testRegex = new RegExp(pattern, 'i');
+  // Global regex for replacement loop
+  const regex = new RegExp(pattern, 'gi');
   
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode: function(node) {
@@ -68,7 +71,7 @@ function redactKeywords() {
           node.parentNode.classList.contains('guard-secret-mask')) {
         return NodeFilter.FILTER_REJECT;
       }
-      return regex.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      return testRegex.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
     }
   });
 
@@ -168,7 +171,11 @@ document.addEventListener('input', (e) => {
       if (!alertBox) {
         alertBox = document.createElement('div');
         alertBox.id = 'guard-dlp-alert';
-        alertBox.innerHTML = `<span>🚨 <strong>Privacy Guard Warning:</strong> Protected secret detected in your input! Delete it before sending.</span>`;
+        const span = document.createElement('span');
+        const strong = document.createElement('strong');
+        strong.textContent = 'Privacy Guard Warning:';
+        span.append('\u{1F6A8} ', strong, ' Protected secret detected in your input! Delete it before sending.');
+        alertBox.appendChild(span);
         document.body.appendChild(alertBox);
       }
       alertBox.style.display = 'flex';
