@@ -19,10 +19,6 @@ body.guard-presentation-mode .guard-secret-mask {
    Any matching element turns into an opaque, unselectable blur box.
    ========================================================================== */
 
-/* 0. CLAUDE PRIVACY OVERRIDE - HIDE RECENT LIST */
-body.guard-presentation-mode ul:has([data-dd-action-name="sidebar-chat-item"]) {
-  display: none !important;
-}
 
 /* 1. ChatGPT */
 body.guard-presentation-mode nav[aria-label="Chat history"] ol li,
@@ -33,6 +29,7 @@ body.guard-presentation-mode [data-testid^="history-item"],
 body.guard-presentation-mode nav.flex-col > a,
 body.guard-presentation-mode .flex.flex-col.gap-2 > a,
 body.guard-presentation-mode nav .truncate,
+body.guard-presentation-mode [data-dd-action-name="sidebar-chat-item"],
 
 /* 3. Gemini & AI Studio */
 body.guard-presentation-mode conversation-list-item,
@@ -114,6 +111,7 @@ body.guard-presentation-mode [data-testid^="history-item"]:hover,
 body.guard-presentation-mode nav.flex-col > a:hover,
 body.guard-presentation-mode .flex.flex-col.gap-2 > a:hover,
 body.guard-presentation-mode nav .truncate:hover,
+body.guard-presentation-mode [data-dd-action-name="sidebar-chat-item"]:hover,
 body.guard-presentation-mode conversation-list-item:hover,
 body.guard-presentation-mode .recent-conversations-list li:hover,
 body.guard-presentation-mode [data-test-id="conversation-history-item"]:hover,
