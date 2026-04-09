@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Privacy Guard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <img src="AIGuard.png" alt="Privacy shield" class="header-icon" />
+    <div class="header-text">
+      <h1>AI <span class="accent">Privacy</span> Guard</h1>
+      <div class="version">v1.0.1 — Zero-Trust Privacy</div>
+    </div>
+  </div>
+
+  <!-- Status bar -->
+  <div class="status-bar" role="status" aria-live="polite" aria-atomic="true">
+    <div id="statusDot" class="status-dot active" aria-hidden="true"></div>
+    <span id="statusText" class="status-text active">Extension Active</span>
+  </div>
+
+  <main>
+
+    <!-- Master toggle -->
+    <section class="section primary" aria-label="Master control">
+      <div class="row">
+        <div class="label-group">
+          <label for="extensionEnabled">Extension Enabled</label>
+          <p class="hint">Master switch — controls all privacy features</p>
+        </div>
+        <label class="switch" aria-label="Toggle extension on or off">
+          <input type="checkbox" id="extensionEnabled"
+                 role="switch"
+                 checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Presentation mode -->
+    <section class="section" aria-label="Presentation mode">
+      <div class="row">
+        <div class="label-group">
+          <label for="presentationMode">Presentation Mode</label>
+          <p class="hint">Blur chat history sidebar • Hover to reveal</p>
+        </div>
+        <label class="switch" aria-label="Toggle presentation mode">
+          <input type="checkbox" id="presentationMode"
+                 role="switch"
+                 checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Keyword filter -->
+    <section class="keyword-section" aria-label="Keyword filtering">
+      <label for="keywordInput">
+        <span class="icon">🔍</span>
+        Selective Blur Keywords
+      </label>
+      <p class="hint">Only blur chats matching these keywords. Leave empty for all.</p>
+      <textarea id="keywordInput"
+                placeholder="salary, budget, project-x, secret"
+                aria-label="Comma-separated keywords for selective blurring"
+                aria-describedby="kwMeta"
+                rows="2"
+                spellcheck="false"></textarea>
+      <p id="kwMeta"></p>
+    </section>
+
+    <!-- Supported platforms -->
+    <section class="platforms-section" aria-label="Supported platforms">
+      <div class="section-title">Supported Platforms</div>
+      <div class="platforms-grid" id="platformsGrid">
+        <span class="platform-chip" data-platform="chatgpt">ChatGPT</span>
+        <span class="platform-chip" data-platform="claude">Claude</span>
+        <span class="platform-chip" data-platform="gemini">Gemini</span>
+        <span class="platform-chip" data-platform="perplexity">Perplexity</span>
+        <span class="platform-chip" data-platform="deepseek">DeepSeek</span>
+        <span class="platform-chip" data-platform="copilot">Copilot</span>
+        <span class="platform-chip" data-platform="grok">Grok</span>
+        <span class="platform-chip" data-platform="mistral">Mistral</span>
+        <span class="platform-chip" data-platform="meta">Meta AI</span>
+        <span class="platform-chip" data-platform="poe">Poe</span>
+        <span class="platform-chip" data-platform="sarvam">Sarvam</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shortcut info -->
+  <div class="shortcut-row" aria-label="Keyboard shortcuts">
+    <span class="label">Toggle Presentation Mode</span>
+    <div class="shortcut-keys">
+      <kbd>Alt</kbd>
+      <span class="plus">+</span>
+      <kbd>Shift</kbd>
+      <span class="plus">+</span>
+      <kbd>P</kbd>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="trust-badge">
+      <span class="shield">🛡️</span>
+      Zero external calls • All data stays local
+    </div>
+    <p>AI Privacy Guard v1.0.1 — Open Source Privacy</p>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{
+  "manifest_version": 3,
+  "version": "1.0.1",
+  "name": "AI Privacy Guard",
+  "description": "Zero-trust, React-safe privacy guard that blurs AI chat histories and redacts developer secrets on screen — without crashing modern web apps.",
+  "icons": {
+    "128": "AIGuard.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.chatgpt.com/*",
+    "*://*.claude.ai/*",
+    "*://gemini.google.com/*",
+    "*://aistudio.google.com/*",
+    "*://*.perplexity.ai/*",
+    "*://*.sarvam.ai/*",
+    "*://*.deepseek.com/*",
+    "*://copilot.microsoft.com/*",
+    "*://*.grok.com/*",
+    "*://grok.com/*",
+    "*://x.com/*",
+    "*://*.mistral.ai/*",
+    "*://*.meta.ai/*",
+    "*://*.poe.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.chatgpt.com/*",
+        "*://*.claude.ai/*",
+        "*://gemini.google.com/*",
+        "*://aistudio.google.com/*",
+        "*://*.perplexity.ai/*",
+        "*://*.sarvam.ai/*",
+        "*://*.deepseek.com/*",
+        "*://copilot.microsoft.com/*",
+        "*://*.grok.com/*",
+        "*://grok.com/*",
+        "*://x.com/*",
+        "*://*.mistral.ai/*",
+        "*://*.meta.ai/*",
+        "*://*.poe.com/*"
+      ],
+      "css": [
+        "guard.css"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_icon": "AIGuard.png",
+    "default_title": "AI Privacy Guard",
+    "default_popup": "popup.html"
+  },
+  "commands": {
+    "toggle-presentation": {
+      "suggested_key": {
+        "default": "Alt+Shift+P",
+        "mac": "Alt+Shift+P"
+      },
+      "description": "Toggle Presentation Mode (Global Blur)"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; script-src 'self'; style-src 'self'; object-src 'none'; connect-src 'none'; img-src 'self' data:;"
+  }
+}

@@ -1,0 +1,20 @@
+# Chrome Extension patterns
+*.crx
+*.pem
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDES
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+AIGuard_real.png
+icon*.png
+debug.log
+error.log

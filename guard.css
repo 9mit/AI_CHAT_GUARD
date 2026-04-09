@@ -1,0 +1,199 @@
+/* AI Privacy Guard - Exahustive Multi-Platform Core CSS */
+
+/* Custom keyword masking */
+.guard-secret-mask {
+  background-color: #000 !important;
+  color: transparent !important;
+  user-select: none !important;
+  border-radius: 3px;
+  padding: 0 2px;
+  display: inline-block;
+}
+
+body.guard-presentation-mode .guard-secret-mask {
+  filter: blur(4px) !important;
+}
+
+/* ==========================================================================
+   EXHAUSTIVE SIDEBAR SELECTORS (Zero-Trust Constant Blur)
+   Any matching element turns into an opaque, unselectable blur box.
+   ========================================================================== */
+
+/* 1. ChatGPT */
+body.guard-presentation-mode nav[aria-label="Chat history"] ol li,
+body.guard-presentation-mode nav[aria-label="Chat history"] a,
+body.guard-presentation-mode [data-testid^="history-item"],
+
+/* 2. Claude */
+body.guard-presentation-mode nav.flex-col > a,
+body.guard-presentation-mode .flex.flex-col.gap-2 > a,
+body.guard-presentation-mode nav .truncate,
+
+/* 3. Gemini & AI Studio */
+body.guard-presentation-mode conversation-list-item,
+body.guard-presentation-mode .recent-conversations-list li,
+body.guard-presentation-mode [data-test-id="conversation-history-item"],
+body.guard-presentation-mode mat-sidenav a,
+body.guard-presentation-mode mat-sidenav .history-item,
+
+/* 4. Microsoft Copilot */
+body.guard-presentation-mode cib-side-panel,
+body.guard-presentation-mode ul[role="list"] li,
+body.guard-presentation-mode .recent-chat-item,
+body.guard-presentation-mode cib-chat-turn,
+
+/* 5. Grok (X.com & Grok.com) */
+body.guard-presentation-mode div[aria-label="Timeline: Grok"],
+body.guard-presentation-mode a[href*="/i/grok/"],
+body.guard-presentation-mode [data-testid="sidebarColumn"] a,
+
+/* 6. Poe */
+body.guard-presentation-mode section[class*="sidebar"] a,
+body.guard-presentation-mode div[class*="ChatList"] a,
+body.guard-presentation-mode div[class*="history"] a,
+body.guard-presentation-mode div[class*="History"] a,
+
+/* 7. DeepSeek */
+body.guard-presentation-mode [class*="chat-item-"],
+body.guard-presentation-mode .sidebar-item:has([class*="chat-item-"]),
+body.guard-presentation-mode a._546d736,
+body.guard-presentation-mode div.c08e6e93,
+body.guard-presentation-mode h1.chat-title,
+body.guard-presentation-mode [class*="chat-header"] h1,
+body.guard-presentation-mode [data-testid="chat-title"],
+body.guard-presentation-mode [data-message-role="user"],
+body.guard-presentation-mode [data-message-role="assistant"],
+body.guard-presentation-mode [class*="message-bubble"],
+body.guard-presentation-mode [class*="user-profile"],
+body.guard-presentation-mode .ds-user-info,
+body.guard-presentation-mode div._2afd28d,
+body.guard-presentation-mode div._9d8da05,
+body.guard-presentation-mode button[aria-label*="user"],
+
+/* 8. General Fallbacks 
+   (Catches Perplexity, DeepSeek, Meta AI, Sarvam, Mistral) 
+   We aggressively target common layout implementations:
+   links and buttons inside navs, sidebars, or history lists. */
+body.guard-presentation-mode aside a,
+body.guard-presentation-mode aside li,
+body.guard-presentation-mode aside button,
+body.guard-presentation-mode nav a,
+body.guard-presentation-mode nav li,
+body.guard-presentation-mode nav button,
+body.guard-presentation-mode div[role="navigation"] a,
+body.guard-presentation-mode div[role="navigation"] li,
+body.guard-presentation-mode div[role="navigation"] button,
+body.guard-presentation-mode [data-testid*="sidebar"] a,
+body.guard-presentation-mode [data-testid*="sidebar"] button,
+body.guard-presentation-mode [class*="sidebar"] a,
+body.guard-presentation-mode [class*="sidebar"] li,
+body.guard-presentation-mode [class*="sidebar"] button,
+body.guard-presentation-mode [class*="history"] a,
+body.guard-presentation-mode [class*="history"] li,
+body.guard-presentation-mode [class*="history"] button,
+body.guard-presentation-mode [class*="History"] a,
+body.guard-presentation-mode [class*="History"] li,
+body.guard-presentation-mode [class*="History"] button
+{
+  filter: blur(5px) !important;
+  opacity: 0.5 !important;
+  pointer-events: auto !important;
+  user-select: none !important;
+  transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease !important;
+}
+
+/* 8. Hover to reveal (localized) */
+body.guard-presentation-mode nav[aria-label="Chat history"] ol li:hover,
+body.guard-presentation-mode nav[aria-label="Chat history"] a:hover,
+body.guard-presentation-mode [data-testid^="history-item"]:hover,
+body.guard-presentation-mode nav.flex-col > a:hover,
+body.guard-presentation-mode .flex.flex-col.gap-2 > a:hover,
+body.guard-presentation-mode nav .truncate:hover,
+body.guard-presentation-mode conversation-list-item:hover,
+body.guard-presentation-mode .recent-conversations-list li:hover,
+body.guard-presentation-mode [data-test-id="conversation-history-item"]:hover,
+body.guard-presentation-mode mat-sidenav a:hover,
+body.guard-presentation-mode mat-sidenav .history-item:hover,
+body.guard-presentation-mode cib-side-panel:hover,
+body.guard-presentation-mode ul[role="list"] li:hover,
+body.guard-presentation-mode .recent-chat-item:hover,
+body.guard-presentation-mode cib-chat-turn:hover,
+body.guard-presentation-mode div[aria-label="Timeline: Grok"]:hover,
+body.guard-presentation-mode a[href*="/i/grok/"]:hover,
+body.guard-presentation-mode [data-testid="sidebarColumn"] a:hover,
+body.guard-presentation-mode section[class*="sidebar"] a:hover,
+body.guard-presentation-mode div[class*="ChatList"] a:hover,
+body.guard-presentation-mode div[class*="history"] a:hover,
+body.guard-presentation-mode div[class*="History"] a:hover,
+
+/* DeepSeek Hover */
+body.guard-presentation-mode [class*="chat-item-"]:hover,
+body.guard-presentation-mode .sidebar-item:has([class*="chat-item-"]):hover,
+body.guard-presentation-mode a._546d736:hover,
+body.guard-presentation-mode div.c08e6e93:hover,
+body.guard-presentation-mode h1.chat-title:hover,
+body.guard-presentation-mode [class*="chat-header"] h1:hover,
+body.guard-presentation-mode [data-testid="chat-title"]:hover,
+body.guard-presentation-mode [data-message-role="user"]:hover,
+body.guard-presentation-mode [data-message-role="assistant"]:hover,
+body.guard-presentation-mode [class*="message-bubble"]:hover,
+body.guard-presentation-mode [class*="user-profile"]:hover,
+body.guard-presentation-mode .ds-user-info:hover,
+body.guard-presentation-mode div._2afd28d:hover,
+body.guard-presentation-mode div._9d8da05:hover,
+body.guard-presentation-mode button[aria-label*="user"]:hover,
+body.guard-presentation-mode aside a:hover,
+body.guard-presentation-mode aside li:hover,
+body.guard-presentation-mode aside button:hover,
+body.guard-presentation-mode nav a:hover,
+body.guard-presentation-mode nav li:hover,
+body.guard-presentation-mode nav button:hover,
+body.guard-presentation-mode div[role="navigation"] a:hover,
+body.guard-presentation-mode div[role="navigation"] li:hover,
+body.guard-presentation-mode div[role="navigation"] button:hover,
+body.guard-presentation-mode [data-testid*="sidebar"] a:hover,
+body.guard-presentation-mode [data-testid*="sidebar"] button:hover,
+body.guard-presentation-mode [class*="sidebar"] a:hover,
+body.guard-presentation-mode [class*="sidebar"] li:hover,
+body.guard-presentation-mode [class*="sidebar"] button:hover,
+body.guard-presentation-mode [class*="history"] a:hover,
+body.guard-presentation-mode [class*="history"] li:hover,
+body.guard-presentation-mode [class*="history"] button:hover,
+body.guard-presentation-mode [class*="History"] a:hover,
+body.guard-presentation-mode [class*="History"] li:hover,
+body.guard-presentation-mode [class*="History"] button:hover
+{
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* ==========================================================================
+   ACTIVE DLP PROMPT MONITOR ALERT
+   Displayed locally when the user types a protected keyword into the chat box.
+   ========================================================================== */
+#guard-dlp-alert {
+  position: fixed !important;
+  bottom: 80px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: rgba(220, 38, 38, 0.95) !important;
+  color: white !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  font-family: system-ui, -apple-system, sans-serif !important;
+  font-size: 14px !important;
+  z-index: 2147483647 !important;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4) !important;
+  backdrop-filter: blur(4px) !important;
+  pointer-events: none !important;
+  animation: guardPopIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border: 1px solid #f87171 !important;
+}
+
+@keyframes guardPopIn {
+  0% { transform: translate(-50%, 20px); opacity: 0; }
+  100% { transform: translate(-50%, 0); opacity: 1; }
+}
