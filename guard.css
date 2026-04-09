@@ -19,6 +19,11 @@ body.guard-presentation-mode .guard-secret-mask {
    Any matching element turns into an opaque, unselectable blur box.
    ========================================================================== */
 
+/* 0. CLAUDE PRIVACY OVERRIDE - HIDE RECENT LIST */
+body.guard-presentation-mode ul:has([data-dd-action-name="sidebar-chat-item"]) {
+  display: none !important;
+}
+
 /* 1. ChatGPT */
 body.guard-presentation-mode nav[aria-label="Chat history"] ol li,
 body.guard-presentation-mode nav[aria-label="Chat history"] a,
