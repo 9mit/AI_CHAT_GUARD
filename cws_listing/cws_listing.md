@@ -15,7 +15,7 @@ All content complies strictly with the [Chrome Web Store Developer Program Polic
 | **Short Description** | `Convert ChatGPT, Claude & DeepSeek chats into executive PowerPoint (.pptx) decks, docs & diagrams. 100% private, 1-click.` | 121 / 132 characters (Max allowed: 132) |
 | **Category** | `Productivity` (Secondary: `Workflow & Planning`) | Official CWS Category |
 | **Language** | `English (United States)` | Primary CWS Index |
-| **Version** | `2.1.2` | Manifest V3 |
+| **Version** | `2.1.3` | Manifest V3 |
 | **Website URL** | `https://deckmind.ai/` | Canonical Product Website |
 | **Support / Docs** | `https://deckmind.ai/docs.html` | Documentation & Help Center |
 | **Privacy Policy URL** | `https://deckmind.ai/privacy.html` | Zero-Trust Privacy Guarantee |

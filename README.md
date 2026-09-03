@@ -138,4 +138,4 @@ DECKMIND_AI/
 
 ---
 
-*DeckMind AI v2.1.2 — Transforming AI conversations into executive presentations.*
+*DeckMind AI v2.1.3 — Transforming AI conversations into executive presentations.*

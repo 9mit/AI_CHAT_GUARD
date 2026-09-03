@@ -1,6 +1,6 @@
 {
   "name": "deckmind-ai",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Transform AI chat threads from ChatGPT, Claude, Gemini, DeepSeek, etc. into executive-grade luxury PowerPoint presentations, multi-format reports, and grounded visual decks.",
   "main": "src/background.js",
   "scripts": {

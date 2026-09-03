@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "DeckMind AI: AI Chat to PowerPoint & Slides",
   "short_name": "DeckMind AI",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Convert AI chat conversations into executive PowerPoint (.pptx) presentations, reports & visual diagrams. 100% private, 1-click.",
   "minimum_chrome_version": "109",
   "icons": {
