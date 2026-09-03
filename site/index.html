@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeckMind AI — AI Chat to PowerPoint & Presentation Generator</title>
+  <meta name="description" content="Transform AI chats from ChatGPT, Claude, Gemini & DeepSeek into executive PowerPoint (.pptx) decks, Word docs & diagrams. 100% private zero-trust Chrome extension.">
+  <meta name="keywords" content="ai chat to powerpoint, chatgpt to presentation, claude to slides, deepseek to ppt, ai presentation maker chrome extension, pptx generator, zero trust ai extension">
+  <link rel="canonical" href="https://deckmind.ai/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://deckmind.ai/">
+  <meta property="og:title" content="DeckMind AI — AI Chat to PowerPoint & Presentation Generator">
+  <meta property="og:description" content="Convert messy AI conversations into executive-grade PowerPoint presentations and multi-format reports in 1-click. 100% local, zero-trust privacy.">
+  <meta property="og:image" content="https://deckmind.ai/images/og-image.png">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://deckmind.ai/">
+  <meta name="twitter:title" content="DeckMind AI — AI Chat to PowerPoint & Presentation Generator">
+  <meta name="twitter:description" content="Convert messy AI conversations into executive-grade PowerPoint presentations and multi-format reports in 1-click.">
+  <meta name="twitter:image" content="https://deckmind.ai/images/og-image.png">
+
+  <link rel="stylesheet" href="css/site.css">
+
+  <!-- JSON-LD Structured Data: SoftwareApplication & Organization & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://deckmind.ai/#software",
+        "name": "DeckMind AI",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Chrome, Chromium Browsers (Brave, Edge, Arc)",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Chrome Extension that captures conversational threads from ChatGPT, Claude, Gemini, DeepSeek, and Perplexity to generate executive PowerPoint (.pptx) presentations, Word (.docx) reports, and grounded citation ledgers with 100% zero-trust client-side privacy.",
+        "url": "https://deckmind.ai/",
+        "author": {
+          "@type": "Organization",
+          "name": "DeckMind AI Team",
+          "url": "https://deckmind.ai/"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://deckmind.ai/#website",
+        "url": "https://deckmind.ai/",
+        "name": "DeckMind AI",
+        "description": "Official website of DeckMind AI: AI Chat to Presentation & Multi-Format Intelligence Engine.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "DeckMind AI Team"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://deckmind.ai/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does DeckMind AI convert AI chats into PowerPoint?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "DeckMind AI runs safely in your browser via a Manifest V3 Chrome Extension. It reads the conversational DOM of ChatGPT, Claude, Gemini, DeepSeek, or Perplexity, structures the text into a curated executive storyboard (8, 10, or 12 slides), and compiles a native, editable Microsoft PowerPoint (.pptx) file client-side using PptxGenJS."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my proprietary data or chat history private?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, 100%. DeckMind AI operates on a strict Zero-Trust local architecture. All parsing, narrative synthesis, and PPTX compilation happen entirely inside your browser's memory. No raw chat logs, prompts, or presentation files are ever transmitted to external commercial servers or third-party cloud APIs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which AI platforms are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "DeckMind AI supports ChatGPT (OpenAI), Claude (Anthropic), Gemini & AI Studio (Google), DeepSeek, Perplexity AI, Microsoft Copilot, xAI Grok, Mistral Le Chat, Meta AI, and self-hosted Open-WebUI / Ollama instances on localhost."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are the exported PowerPoint slides editable?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. DeckMind AI exports native 16:9 .pptx files with fully editable text boxes, vector shapes, comparison tables, speaker notes, and embedded vector diagrams that you can customize directly in Microsoft PowerPoint, Apple Keynote, or Google Slides."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="brand-link" aria-label="DeckMind AI Homepage">
+        <div class="brand-badge-icon">DM</div>
+        <span>DeckMind AI</span>
+      </a>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="chatgpt-to-powerpoint.html">ChatGPT to PPT</a></li>
+          <li><a href="compare.html">Compare</a></li>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://chromewebstore.google.com/detail/deckmind-ai" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          Add to Chrome — Free
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-pill">
+          ✨ Zero-Trust Local Architecture • 100% Client-Side
+        </div>
+        <h1>Transform AI Chat Threads into Executive PowerPoint Presentations</h1>
+        <p class="hero-subtitle">
+          Instantly synthesize conversational chaos from ChatGPT, Claude, Gemini & DeepSeek into editable 16:9 <code>.pptx</code> slide decks, multi-format reports & grounded visual ledgers.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://chromewebstore.google.com/detail/deckmind-ai" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+            Install Chrome Extension — It's Free
+          </a>
+          <a href="how-it-works.html" class="btn btn-secondary btn-lg">
+            See How It Works
+          </a>
+        </div>
+        <div class="hero-meta">
+          <span>⚡ 1-Click Instant Export</span>
+          <span>🛡️ Zero Cloud Data Leakage</span>
+          <span>⌨️ Shortcut: Alt + Shift + P</span>
+          <span>📁 Native Editable .pptx</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platform Compatibility Bar -->
+    <section class="platform-bar" aria-label="Supported AI Platforms">
+      <div class="container">
+        <div class="platform-bar-title">Direct In-Browser Compatibility Across 12+ AI Platforms</div>
+        <div class="platform-chips">
+          <span class="platform-chip">ChatGPT (GPT-4o)</span>
+          <span class="platform-chip">Anthropic Claude 3.5</span>
+          <span class="platform-chip">Google Gemini 2.0</span>
+          <span class="platform-chip">DeepSeek R1 / V3</span>
+          <span class="platform-chip">Perplexity AI</span>
+          <span class="platform-chip">Microsoft Copilot</span>
+          <span class="platform-chip">xAI Grok</span>
+          <span class="platform-chip">Mistral Le Chat</span>
+          <span class="platform-chip">Local Ollama / Open-WebUI</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Differentiators Grid -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Why DeckMind AI</span>
+          <h2>The Smarter Way to Go From Chat to Presentation</h2>
+          <p>Don't spend hours copy-pasting conversational bullet points into blank slide templates. Let DeckMind AI structure, ground, and design executive slides automatically.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>1-Click Chat Ingestion</h3>
+            <p>Our discreet, draggable HUD pill detects when you're in an AI chat and extracts unstructured messages into clear conceptual hierarchies without leaving the tab.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>100% Zero-Trust Privacy</h3>
+            <p>Slide compilation happens completely in your browser memory. Credentials (AWS keys, OpenAI tokens, JWTs) are scrubbed automatically before rendering.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Verbatim Source Grounding</h3>
+            <p>Every metric, pillar, and claim links back to its exact conversation turn. Click "Teleport in Chat Tab" to jump directly to the original assistant answer bubble.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Curated Luxury Design Palettes</h3>
+            <p>Move beyond generic slide templates. Choose from Rose Cream Luxury, Noir & Blush Pink, Warm Editorial, and Nordic Slate with procedural vector diagram art.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">📑</div>
+            <h3>Multi-Format Export Suite</h3>
+            <p>One chat generates five deliverables: 16:9 PowerPoint (<code>.pptx</code>), Word Document (<code>.docx</code>), Excel Sheets (<code>.xlsx</code>), SVG Diagrams, and Plaintext summaries.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🎙️</div>
+            <h3>Rehearsal Assistant & Scripting</h3>
+            <p>Equipped with an integrated presenter rehearsal timer and auto-generated speaker talking points for every slide to ensure you ace your briefing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="section" id="workflow">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Seamless Workflow</span>
+          <h2>From AI Prompt to Boardroom in 4 Steps</h2>
+          <p>Designed for strategy consultants, engineers, researchers, and founders who demand speed and aesthetic polish.</p>
+        </div>
+
+        <div class="step-grid">
+          <div class="step-card">
+            <div class="step-number">01</div>
+            <h3>Chat Naturally</h3>
+            <p>Have your deep brainstorming or research session in ChatGPT, Claude, Gemini, or DeepSeek.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
+            <h3>Trigger DeckMind</h3>
+            <p>Click the floating HUD pill or press <code>Alt + Shift + P</code> to ingest and structure the conversation.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
+            <h3>Fine-Tune in Studio</h3>
+            <p>Switch storytelling frameworks (Executive, Pitch Deck, Technical), tweak layouts, or add notes in Deck Studio.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <h3>Export Native .PPTX</h3>
+            <p>Download your presentation file directly. Open and edit in Microsoft PowerPoint, Apple Keynote, or Google Slides.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="section" id="compare">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Objective Comparison</span>
+          <h2>How DeckMind AI Compares to Alternatives</h2>
+          <p>See why high-security teams and power users choose DeckMind AI over cloud-based slide apps.</p>
+        </div>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature / Capability</th>
+                <th>DeckMind AI</th>
+                <th>Plus AI</th>
+                <th>SlidesAI</th>
+                <th>Manual Copy-Paste</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-row">
+                <td><strong>Zero-Trust Local Privacy (Zero Cloud Calls)</strong></td>
+                <td><span class="check">✔ 100% Client-Side</span></td>
+                <td><span class="cross">✖ Cloud API Processing</span></td>
+                <td><span class="cross">✖ Cloud API Processing</span></td>
+                <td><span class="check">✔ Manual</span></td>
+              </tr>
+              <tr>
+                <td><strong>Multi-Platform Chat Ingestion (12+ LLMs)</strong></td>
+                <td><span class="check">✔ ChatGPT, Claude, DeepSeek, etc.</span></td>
+                <td><span class="cross">✖ Workspace Only</span></td>
+                <td><span class="cross">✖ Workspace Only</span></td>
+                <td><span class="cross">✖ Tedious</span></td>
+              </tr>
+              <tr>
+                <td><strong>Native Editable 16:9 .pptx Export</strong></td>
+                <td><span class="check">✔ Direct 1-Click</span></td>
+                <td><span class="check">✔ PowerPoint Add-in</span></td>
+                <td><span class="cross">✖ Google Slides Only</span></td>
+                <td><span class="cross">✖ Hours of manual formatting</span></td>
+              </tr>
+              <tr>
+                <td><strong>Verbatim Source Citation & Teleportation</strong></td>
+                <td><span class="check">✔ Exact turn citations</span></td>
+                <td><span class="cross">✖ None</span></td>
+                <td><span class="cross">✖ None</span></td>
+                <td><span class="cross">✖ Lost context</span></td>
+              </tr>
+              <tr>
+                <td><strong>Multi-Format Output (DOCX, XLSX, SVG)</strong></td>
+                <td><span class="check">✔ 5 Formats Included</span></td>
+                <td><span class="cross">✖ Slides only</span></td>
+                <td><span class="cross">✖ Slides only</span></td>
+                <td><span class="cross">✖ None</span></td>
+              </tr>
+              <tr>
+                <td><strong>Price / Subscription Model</strong></td>
+                <td><span class="check">✔ Free Chrome Extension</span></td>
+                <td><span class="cross">✖ $15–$25 / month</span></td>
+                <td><span class="cross">✖ $10–$20 / month</span></td>
+                <td><span class="cross">✖ 2–4 hours lost labor</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Frequently Asked Questions</span>
+          <h2>Everything You Need to Know</h2>
+          <p>Clear answers to common questions about DeckMind AI, privacy, and PowerPoint compatibility.</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question">How do I convert a ChatGPT conversation into PowerPoint?</h3>
+            <p class="faq-answer">Install DeckMind AI from the Chrome Web Store. Whenever you are on ChatGPT (or Claude, Gemini, DeepSeek), a discreet "DeckMind AI" action pill appears. Click "PPTX" or press <code>Alt + Shift + P</code> to instantly download a finished 16:9 presentation file.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Does DeckMind AI send my chat data to an external server?</h3>
+            <p class="faq-answer">No. DeckMind AI is engineered on a zero-trust model. All scraping, topic extraction, slide generation, and file compilation happen 100% inside your browser's local sandbox using PptxGenJS. Nothing is sent to third-party servers.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Can I edit the generated PowerPoint files?</h3>
+            <p class="faq-answer">Yes. The generated <code>.pptx</code> files are standard OpenXML presentations. Every title, bullet point, table, card container, and speaker note can be edited directly inside Microsoft PowerPoint, Apple Keynote, or Google Slides.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Does it support local open-source models like Ollama?</h3>
+            <p class="faq-answer">Yes! In DeckMind AI Settings, you can configure local Ollama (<code>http://localhost:11434</code>) or Stable Diffusion WebUI (<code>http://localhost:7860</code>) to generate custom slide graphics and summaries completely offline.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- High-Converting CTA Banner -->
+    <section class="container">
+      <div class="cta-banner">
+        <h2>Start Generating Executive Decks in Seconds</h2>
+        <p>Join thousands of professionals, consultants, and founders using DeckMind AI to turn AI conversations into boardroom presentations.</p>
+        <a href="https://chromewebstore.google.com/detail/deckmind-ai" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+          Add DeckMind AI to Chrome — It's Free
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-link">
+            <div class="brand-badge-icon">DM</div>
+            <span>DeckMind AI</span>
+          </div>
+          <p>The Flagship AI Chat-to-Presentation Intelligence & Multi-Format Synthesis Engine for Google Chrome.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="chatgpt-to-powerpoint.html">ChatGPT to PPT</a></li>
+            <li><a href="claude-to-presentation.html">Claude to Slides</a></li>
+            <li><a href="deepseek-to-ppt.html">DeepSeek to PPT</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="compare.html">Comparison Matrix</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="https://github.com/deckmind-ai" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Trust & Safety</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="security.html">Security Guarantee</a></li>
+            <li><a href="https://chromewebstore.google.com/detail/deckmind-ai" target="_blank" rel="noopener">Chrome Web Store</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 DeckMind AI. All rights reserved. 100% Zero-Trust Local Architecture.</p>
+        <p>Built for Chrome, Brave, Edge & Chromium browsers.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

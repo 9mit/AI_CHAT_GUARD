@@ -1,0 +1,185 @@
+/* DeckMind AI — Options & Configuration Stylesheet (Cream, White, Black, Light Pink Edition) */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #FAF7F2;
+  color: #111111;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.options-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header */
+.options-header {
+  background: #FFFFFF;
+  border: 1px solid #EAE5DD;
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-icon-lg {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #18181B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: #FB7185;
+  letter-spacing: 0.5px;
+  border: 1px solid #27272A;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.brand-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: -0.3px;
+}
+
+.brand-desc {
+  font-size: 13px;
+  color: #52525B;
+  margin-top: 2px;
+}
+
+/* Card Section */
+.settings-section {
+  background: #FFFFFF;
+  border: 1px solid #EAE5DD;
+  border-radius: 14px;
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #FAF7F2;
+  padding-bottom: 8px;
+}
+
+.setting-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.setting-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.setting-desc {
+  font-size: 12px;
+  color: #52525B;
+}
+
+.input-field {
+  background: #FAF7F2;
+  border: 1px solid #EAE5DD;
+  border-radius: 8px;
+  color: #111111;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 12px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.input-field:focus {
+  background: #FFFFFF;
+  border-color: #FB7185;
+  box-shadow: 0 0 0 2px rgba(251, 113, 133, 0.15);
+}
+
+.input-field option {
+  background: #FFFFFF;
+  color: #111111;
+}
+
+.btn-test {
+  align-self: flex-start;
+  background: #FFF1F2;
+  border: 1px solid #FECDD3;
+  border-radius: 6px;
+  color: #BE185D;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-test:hover {
+  background: #FB7185;
+  color: #FFFFFF;
+  border-color: #FB7185;
+}
+
+.test-status {
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-save-all {
+  background: #18181B;
+  border: 1px solid #27272A;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 22px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s;
+}
+
+.btn-save-all:hover {
+  background: #09090B;
+  border-color: #FB7185;
+  box-shadow: 0 4px 14px rgba(251, 113, 133, 0.25);
+}

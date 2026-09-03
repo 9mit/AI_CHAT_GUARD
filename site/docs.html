@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation & Setup Guide | DeckMind AI</title>
+  <meta name="description" content="Technical documentation and setup guide for DeckMind AI: Chrome extension usage, keyboard shortcuts, Ollama local LLM integration, and Stable Diffusion setup.">
+  <link rel="canonical" href="https://deckmind.ai/docs.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://deckmind.ai/docs.html">
+  <meta property="og:title" content="Documentation & Setup Guide | DeckMind AI">
+  <meta property="og:description" content="Complete documentation, keyboard shortcuts, and local AI model integration guides for DeckMind AI.">
+
+  <link rel="stylesheet" href="css/site.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "DeckMind AI Technical Documentation and Configuration Guide",
+    "url": "https://deckmind.ai/docs.html"
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="brand-link" aria-label="DeckMind AI Homepage">
+        <div class="brand-badge-icon">DM</div>
+        <span>DeckMind AI</span>
+      </a>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="chatgpt-to-powerpoint.html">ChatGPT to PPT</a></li>
+          <li><a href="compare.html">Compare</a></li>
+          <li><a href="docs.html" class="active">Documentation</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://chromewebstore.google.com/detail/deckmind-ai" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          Add to Chrome — Free
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-pill">
+          Developer & Power User Guide
+        </div>
+        <h1>DeckMind AI Documentation</h1>
+        <p class="hero-subtitle">
+          Everything you need to know about customizing frameworks, local LLM proxying, procedural vector rendering, and keyboard workflows.
+        </p>
+      </div>
+    </section>
+
+    <!-- Docs Section -->
+    <section class="section">
+      <div class="container" style="max-width: 860px;">
+        <article class="faq-list">
+          <div class="faq-item">
+            <h2 class="faq-question">1. In-Browser Client-Side Engine (Default)</h2>
+            <p class="faq-answer">By default, DeckMind AI requires zero external software or server configuration. The extension runs entirely inside Google Chrome using native JavaScript DOM scrapers and PptxGenJS compilation. Simply install the extension and use it on any supported chat page.</p>
+          </div>
+
+          <div class="faq-item">
+            <h2 class="faq-question">2. Local Ollama LLM Integration (Optional)</h2>
+            <p class="faq-answer">If you run local open-source models via <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>, you can direct DeckMind AI to use local models such as <code>llama3.2</code>, <code>mistral-nemo</code>, or <code>deepseek-r1</code> for offline slide summarization:
+              <br><br>
+              1. Start Ollama with CORS enabled: <code>OLLAMA_ORIGINS="*" ollama serve</code><br>
+              2. Open DeckMind AI <strong>Options / Settings</strong> page.<br>
+              3. Under <strong>Open-Source LLM Orchestration</strong>, select <strong>Local Ollama Service</strong>.<br>
+              4. Enter your model name (e.g., <code>llama3.2</code>) and click <strong>Test Ollama Connection</strong>.</p>
+          </div>
+
+          <div class="faq-item">
+            <h2 class="faq-question">3. Local Stable Diffusion WebUI Integration (Optional)</h2>
+            <p class="faq-answer">To generate custom AI visual assets directly into your PowerPoint slides using local diffusion models (AUTOMATIC1111 or ComfyUI):
+              <br><br>
+              1. Launch your Stable Diffusion WebUI with the API flag: <code>--api --cors-allow-origins="*"</code><br>
+              2. In DeckMind AI Settings, set Visual Mode to <strong>Local Stable Diffusion WebUI</strong>.<br>
+              3. Set endpoint to <code>http://localhost:7860</code> and verify connection.</p>
+          </div>
+
+          <div class="faq-item">
+            <h2 class="faq-question">4. Supported File Exports</h2>
+            <p class="faq-answer">
+              • <strong>Microsoft PowerPoint (<code>.pptx</code>)</strong>: 16:9 widescreen presentation with native shapes and text.<br>
+              • <strong>Microsoft Word (<code>.docx</code>)</strong>: Structured executive brief and essay.<br>
+              • <strong>Microsoft Excel (<code>.xlsx</code>)</strong>: Extracted tabular metrics and comparison matrices.<br>
+              • <strong>Vector Diagrams (<code>.svg</code>)</strong>: Clean vector architecture diagrams for documentation.<br>
+              • <strong>Plaintext (<code>.txt</code>)</strong>: Clean markdown summary notes.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="container">
+      <div class="cta-banner">
+        <h2>Install DeckMind AI Now</h2>
+        <p>Zero friction. Free and private in the Chrome Web Store.</p>
+        <a href="https://chromewebstore.google.com/detail/deckmind-ai" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+          Add to Chrome
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 DeckMind AI. All rights reserved. 100% Zero-Trust Local Architecture.</p>
+        <a href="/">Back to Homepage</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

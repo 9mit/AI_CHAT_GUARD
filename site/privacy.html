@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zero-Trust Privacy Policy & Architecture | DeckMind AI</title>
+  <meta name="description" content="DeckMind AI Zero-Trust Privacy Policy. 100% client-side compilation, zero third-party cloud data transmission, and automatic in-memory secret sanitization.">
+  <link rel="canonical" href="https://deckmind.ai/privacy.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://deckmind.ai/privacy.html">
+  <meta property="og:title" content="Zero-Trust Privacy Policy & Architecture | DeckMind AI">
+  <meta property="og:description" content="100% local client-side processing. Your conversations never leave your device.">
+
+  <link rel="stylesheet" href="css/site.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "DeckMind AI Privacy Policy",
+    "url": "https://deckmind.ai/privacy.html"
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="brand-link" aria-label="DeckMind AI Homepage">
+        <div class="brand-badge-icon">DM</div>
+        <span>DeckMind AI</span>
+      </a>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="features.html">Features</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="chatgpt-to-powerpoint.html">ChatGPT to PPT</a></li>
+          <li><a href="compare.html">Compare</a></li>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="privacy.html" class="active">Privacy</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://chromewebstore.google.com/detail/deckmind-ai" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          Add to Chrome — Free
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-pill">
+          🔒 Zero-Trust Local Architecture
+        </div>
+        <h1>Privacy Policy & Confidentiality Guarantee</h1>
+        <p class="hero-subtitle">
+          Your strategic ideas, proprietary data, and conversational prompts belong to you alone. Here is our architectural guarantee.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 800px;">
+        <div class="faq-list">
+          <div class="faq-item">
+            <h2 class="faq-question">1. 100% Client-Side Processing Paradigm</h2>
+            <p class="faq-answer">DeckMind AI compiles presentations entirely in your browser's local sandbox memory. At no point are your prompts, chat transcripts, or generated slides transmitted to any external server, cloud backend, or third-party analytical service.</p>
+          </div>
+
+          <div class="faq-item">
+            <h2 class="faq-question">2. In-Memory Credential & Secret Sanitization</h2>
+            <p class="faq-answer">Before analyzing chat turns or assembling slide decks, DeckMind executes a client-side regex scrubber targeting high-risk patterns (AWS Access Keys, OpenAI/Anthropic API Tokens, GitHub PATs, Google API Keys, and JWT credentials). All detected secrets are masked with deterministic redaction tags (e.g. <code>[REDACTED_OPENAI_KEY]</code>) in memory.</p>
+          </div>
+
+          <div class="faq-item">
+            <h2 class="faq-question">3. Minimal Manifest V3 Permissions</h2>
+            <p class="faq-answer">DeckMind AI adheres to Chrome's principle of least privilege. We only request:
+              <br>• <code>activeTab</code>: To read the conversation in the current tab when triggered.
+              <br>• <code>storage</code>: To save your selected presentation theme and slide length preferences locally.
+              <br>• <code>contextMenus</code>: To enable right-click generation actions.
+              <br>We do not request background browser history or identity permissions.</p>
+          </div>
+
+          <div class="faq-item">
+            <h2 class="faq-question">4. Optional Local Open-Source Models</h2>
+            <p class="faq-answer">If you choose to connect local Ollama (<code>localhost:11434</code>) or Stable Diffusion WebUI (<code>localhost:7860</code>), all requests remain strictly on your local network (localhost). No external internet traffic is ever generated.</p>
+          </div>
+
+          <div class="faq-item">
+            <h2 class="faq-question">5. Chrome Web Store Compliance</h2>
+            <p class="faq-answer">DeckMind AI is strictly audited and compliant with Google Chrome Web Store Developer Program Policies. We do not monetize personal data, inject advertisements, or sell user telemetry.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="container">
+      <div class="cta-banner">
+        <h2>Install with Total Peace of Mind</h2>
+        <p>Private, auditable, and built for enterprise confidentiality.</p>
+        <a href="https://chromewebstore.google.com/detail/deckmind-ai" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+          Add DeckMind AI to Chrome
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 DeckMind AI. All rights reserved. 100% Zero-Trust Local Architecture.</p>
+        <a href="/">Back to Homepage</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

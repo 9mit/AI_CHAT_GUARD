@@ -1,0 +1,23 @@
+{
+  "name": "deckmind-ai",
+  "version": "2.1.2",
+  "description": "Transform AI chat threads from ChatGPT, Claude, Gemini, DeepSeek, etc. into executive-grade luxury PowerPoint presentations, multi-format reports, and grounded visual decks.",
+  "main": "src/background.js",
+  "scripts": {
+    "build": "node package_cws.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "ai-chat",
+    "powerpoint",
+    "pptx",
+    "presentation",
+    "executive-decks"
+  ],
+  "author": "DeckMind AI Team",
+  "license": "MIT",
+  "dependencies": {
+    "jszip": "^3.10.1",
+    "pptxgenjs": "^3.12.0"
+  }
+}

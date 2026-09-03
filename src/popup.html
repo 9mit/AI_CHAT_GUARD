@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeckMind AI — Presentation & Knowledge Intelligence</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="brand">
+        <div class="brand-icon">DM</div>
+        <div class="brand-name">DeckMind AI</div>
+      </div>
+      <span class="version-pill">v2.1.2</span>
+    </header>
+
+    <!-- Platform Status -->
+    <div class="status-card">
+      <div class="status-info">
+        <div class="status-title" id="platform-name">Detecting AI Chat...</div>
+        <div class="status-sub" id="turn-summary">Scanning active tab DOM</div>
+      </div>
+      <div class="status-badge" id="status-badge">
+        <div class="status-dot"></div>
+        <span id="badge-text">Connected</span>
+      </div>
+    </div>
+
+    <!-- Framework & Audience Settings -->
+    <div class="control-row">
+      <div class="control-group half">
+        <label class="control-label">Framework</label>
+        <select class="theme-select" id="framework-select">
+          <option value="auto" selected>Auto Detect</option>
+          <option value="business">Business & Strategy</option>
+          <option value="technical">Technical Architecture</option>
+          <option value="pitch_deck">Investor Pitch Deck</option>
+          <option value="educational">Educational Lecture</option>
+          <option value="research">Research & Evidence</option>
+        </select>
+      </div>
+      <div class="control-group half">
+        <label class="control-label">Audience</label>
+        <select class="theme-select" id="audience-select">
+          <option value="general" selected>General Audience</option>
+          <option value="executives">Executive Leadership</option>
+          <option value="developers">Developers & Tech</option>
+          <option value="investors">Investors & VCs</option>
+          <option value="students">Students / Academic</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Slide Count Selection -->
+    <div class="control-group">
+      <label class="control-label">Presentation Length</label>
+      <div class="segmented-row">
+        <button class="segmented-btn" data-slides="5">5 Slides</button>
+        <button class="segmented-btn active" data-slides="8">8 Slides</button>
+        <button class="segmented-btn" data-slides="10">10 Slides</button>
+        <button class="segmented-btn" data-slides="12">12 Slides</button>
+      </div>
+    </div>
+
+    <!-- Theme Palette Selection -->
+    <div class="control-group">
+      <label class="control-label">Luxury Theme Palette</label>
+      <select class="theme-select" id="theme-select">
+        <option value="rose_cream" selected>Rose Cream Luxury (Editorial)</option>
+        <option value="noir_rose">Noir & Blush Pink (Dark Luxury)</option>
+        <option value="ivory_blush">Ivory & Ballet Pink (Soft)</option>
+        <option value="monochrome_chic">Monochrome & Rose Gold</option>
+        <option value="editorial">Warm Editorial (Thought Leadership)</option>
+        <option value="nordic">Nordic Slate & Cobalt</option>
+      </select>
+    </div>
+
+    <!-- Primary Action: Studio -->
+    <button class="btn-primary" id="btn-open-studio">
+      <span>Open Presentation Studio</span>
+    </button>
+
+    <!-- Multi-Format Instant Downloads -->
+    <div class="control-group">
+      <label class="control-label">Instant 1-Click Multi-Format Export</label>
+      <div class="format-export-grid">
+        <button class="format-quick-btn" id="btn-quick-pptx" title="Download 16:9 PowerPoint Presentation (.pptx)">
+          <span class="btn-fmt-pill ppt">PPTX</span>
+          <span>Slides</span>
+        </button>
+        <button class="format-quick-btn" id="btn-quick-docx" title="Download Microsoft Word Essay & Report (.docx)">
+          <span class="btn-fmt-pill doc">DOCX</span>
+          <span>Report</span>
+        </button>
+        <button class="format-quick-btn" id="btn-quick-xlsx" title="Download Excel Spreadsheets & Tables (.xlsx)">
+          <span class="btn-fmt-pill xls">XLSX</span>
+          <span>Tables</span>
+        </button>
+        <button class="format-quick-btn" id="btn-quick-flow" title="Download Retro-Modern Flowchart (.svg)">
+          <span class="btn-fmt-pill flo">FLOW</span>
+          <span>Diagram</span>
+        </button>
+        <button class="format-quick-btn" id="btn-quick-txt" title="Download Plaintext Summary & Bullets (.txt)">
+          <span class="btn-fmt-pill txt">TXT</span>
+          <span>Notes</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <div class="footer-left">
+        <a class="popup-link" id="link-options">Settings</a>
+        <span class="footer-dot">•</span>
+        <a class="popup-link" id="link-cws-review" href="https://chromewebstore.google.com/detail/deckmind-ai" target="_blank" rel="noopener">Rate ⭐</a>
+      </div>
+      <span class="footer-privacy-tag" title="100% Client-Side Sandbox. Zero Third-Party Cloud Transmission.">🔒 Zero-Trust</span>
+    </footer>
+  </div>
+
+  <script src="lib/jszip.min.js"></script>
+  <script src="lib/pptxgen.bundle.js"></script>
+  <script src="chat_parsers.js"></script>
+  <script src="deck_extractor.js"></script>
+  <script src="visual_engine.js"></script>
+  <script src="storyboard_engine.js"></script>
+  <script src="pptx_generator.js"></script>
+  <script src="export_engine.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

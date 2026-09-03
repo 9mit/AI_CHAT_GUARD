@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeckMind AI — Presentation & Knowledge Intelligence Studio</title>
+  <link rel="stylesheet" href="deck_studio.css">
+</head>
+<body>
+  <!-- 1. Top Header with Retro-Modern Tactile Buttons -->
+  <header class="studio-header">
+    <div class="header-left">
+      <div class="brand-badge">
+        <div class="brand-logo">DM</div>
+        <span>DeckMind Studio</span>
+      </div>
+      <input type="text" id="deck-title-input" class="deck-title-input" value="Executive Strategy & Architecture" placeholder="Presentation Title">
+    </div>
+
+    <div class="header-center">
+      <select id="studio-framework-select" class="theme-pill-select" title="Storytelling Framework">
+        <option value="auto">Framework: Auto Detect</option>
+        <option value="business">Framework: Business & Strategy</option>
+        <option value="technical">Framework: Technical & Architecture</option>
+        <option value="pitch_deck">Framework: Investor Pitch Deck</option>
+        <option value="educational">Framework: Educational & Lecture</option>
+        <option value="research">Framework: Research & Evidence</option>
+        <option value="tutorial">Framework: Step-by-Step Tutorial</option>
+      </select>
+
+      <select id="studio-theme-select" class="theme-pill-select" title="Luxury Theme">
+        <option value="rose_cream" selected>Rose Cream Luxury (Editorial)</option>
+        <option value="noir_rose">Noir & Blush Pink (Dark Mode)</option>
+        <option value="ivory_blush">Ivory & Ballet Pink (Soft)</option>
+        <option value="monochrome_chic">Monochrome & Rose Gold</option>
+        <option value="editorial">Warm Editorial (Thought Leadership)</option>
+        <option value="nordic">Nordic Slate & Cobalt</option>
+      </select>
+    </div>
+
+    <div class="header-right">
+      <button class="header-btn retro-btn" id="btn-rehearsal-mode" title="Rehearse Presentation with Speaking Timer">
+        <span>Rehearse</span>
+      </button>
+      <button class="header-btn retro-btn" id="btn-present-mode" title="Fullscreen Slideshow">
+        <span>Present</span>
+      </button>
+      <div class="export-btn-group">
+        <button class="header-btn retro-export-btn" id="btn-export-txt" title="Download Plaintext Summary & Bullet Points (.txt)">
+          <span>.TXT</span>
+        </button>
+        <button class="header-btn retro-export-btn" id="btn-export-flowchart" title="Download Vector Flowchart (.svg)">
+          <span>Flowchart</span>
+        </button>
+        <button class="header-btn retro-export-btn" id="btn-export-xlsx" title="Download Extracted Data Tables in Microsoft Excel (.xlsx)">
+          <span>.XLSX</span>
+        </button>
+        <button class="header-btn retro-export-btn" id="btn-export-docx" title="Download Full Long-Form Essay & Report in Microsoft Word (.docx)">
+          <span>.DOCX</span>
+        </button>
+        <button class="header-btn primary retro-primary-btn" id="btn-export-pptx" title="Export Genuine 16:9 PowerPoint File (.pptx)">
+          <span>.PPTX</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Main 3-Panel Workspace -->
+  <main class="studio-main">
+    <!-- Left: Slide Navigator & Knowledge Sources -->
+    <aside class="slide-navigator">
+      <div class="nav-header">
+        <span class="nav-title">SLIDES (<span id="slide-count-num">8</span>)</span>
+        <button class="nav-add-btn" id="btn-add-slide">+ Add Slide</button>
+      </div>
+      <div class="thumbnail-list" id="thumbnail-list">
+        <!-- Dynamically rendered slide thumbnails -->
+      </div>
+      <div class="workspace-footer">
+        <button class="workspace-btn" id="btn-open-source-modal">
+          <span>Sources & Knowledge Workspace</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Center: Interactive 16:9 Presentation Canvas -->
+    <section class="canvas-wrapper">
+      <!-- Layout Quick Switcher Toolbar -->
+      <div class="canvas-toolbar">
+        <span class="canvas-tool-label">Layout:</span>
+        <button class="layout-pill-btn" data-layout="hero_title">Cover</button>
+        <button class="layout-pill-btn" data-layout="executive_summary">Summary</button>
+        <button class="layout-pill-btn" data-layout="three_card_grid">3 Pillars</button>
+        <button class="layout-pill-btn" data-layout="architecture_blueprint">Blueprint</button>
+        <button class="layout-pill-btn" data-layout="split_comparison">Split</button>
+        <button class="layout-pill-btn" data-layout="metrics_kpi">Metrics</button>
+        <button class="layout-pill-btn" data-layout="timeline_steps">Roadmap</button>
+        <button class="layout-pill-btn" data-layout="citations_sources">Citations</button>
+        <button class="layout-pill-btn" data-layout="conclusion">Action</button>
+      </div>
+
+      <!-- 16:9 Slide Canvas Frame -->
+      <div class="slide-frame" id="slide-frame">
+        <!-- Rendered active slide content -->
+      </div>
+    </section>
+
+    <!-- Right: Multi-Agent Presentation Inspector & Copilot Studio -->
+    <aside class="inspector-panel">
+      <div class="inspector-tabs">
+        <button class="tab-btn active" data-tab="tab-copilot">AI Copilot</button>
+        <button class="tab-btn" data-tab="tab-formats">Multi-Format</button>
+        <button class="tab-btn" data-tab="tab-citations">Citations</button>
+        <button class="tab-btn" data-tab="tab-visuals">Visuals</button>
+        <button class="tab-btn" data-tab="tab-critic">Quality</button>
+        <button class="tab-btn" data-tab="tab-notes">Notes</button>
+      </div>
+
+      <!-- Tab 1: AI Conversational Copilot & Slide Assistant -->
+      <div class="tab-content active" id="tab-copilot">
+        <div class="copilot-header">
+          <div class="copilot-title">AI Presentation Copilot</div>
+          <p class="copilot-desc">Instruct the AI to transform, polish, condense, or re-target slides.</p>
+        </div>
+
+        <div class="copilot-quick-actions">
+          <button class="copilot-chip" data-cmd="visual">Make more visual</button>
+          <button class="copilot-chip" data-cmd="condense">Reduce text by 40%</button>
+          <button class="copilot-chip" data-cmd="executive">Format for Executives</button>
+          <button class="copilot-chip" data-cmd="investor">Format for Investors</button>
+          <button class="copilot-chip" data-cmd="diagram">Add Technical Diagram</button>
+        </div>
+
+        <div class="copilot-chat-history" id="copilot-history">
+          <div class="copilot-msg ai">
+            <strong>Copilot Ready:</strong> How would you like to refine this presentation? Select a quick action above or type a custom command below.
+          </div>
+        </div>
+
+        <div class="copilot-input-bar">
+          <input type="text" id="copilot-input" class="copilot-input" placeholder="e.g. Simplify bullet points for executive audience...">
+          <button class="copilot-send-btn" id="copilot-send-btn">Send</button>
+        </div>
+      </div>
+
+      <!-- Tab 2: Multi-Format Knowledge & Export Hub -->
+      <div class="tab-content" id="tab-formats">
+        <div class="section-sub-hdr">Multi-Format Synthesis Suite</div>
+        <p style="font-size: 11.5px; color: var(--text-secondary); margin-bottom: 6px;">
+          Export conversation intelligence directly into Microsoft Office and diagram formats.
+        </p>
+
+        <!-- Format 1: Word Document -->
+        <div class="format-card">
+          <div class="format-header">
+            <span class="format-pill docx">.DOCX</span>
+            <span class="format-name">Microsoft Word Essay & Report</span>
+          </div>
+          <p class="format-desc">Complete long-form narrative with styled headers, executive callouts, and formatted tables.</p>
+          <button class="header-btn" id="btn-format-tab-docx" style="width: 100%; justify-content: center;">
+            Download Word Document (.docx)
+          </button>
+        </div>
+
+        <!-- Format 2: Excel Spreadsheet -->
+        <div class="format-card">
+          <div class="format-header">
+            <span class="format-pill xlsx">.XLSX</span>
+            <span class="format-name">Microsoft Excel Data Tables</span>
+          </div>
+          <p class="format-desc" id="format-tables-count">Scraped tables from conversation formatted into worksheets with zebra striping.</p>
+          <button class="header-btn" id="btn-format-tab-xlsx" style="width: 100%; justify-content: center;">
+            Download Excel Workbook (.xlsx)
+          </button>
+        </div>
+
+        <!-- Format 3: Retro-Modern Flowchart -->
+        <div class="format-card">
+          <div class="format-header">
+            <span class="format-pill flow">FLOW</span>
+            <span class="format-name">Procedural Vector Flowchart</span>
+          </div>
+          <p class="format-desc">Step-by-step execution pipeline diagram with tactile drop-shadow nodes and connectors.</p>
+          <button class="header-btn" id="btn-format-tab-flowchart" style="width: 100%; justify-content: center;">
+            Download Flowchart (.svg)
+          </button>
+        </div>
+
+        <!-- Format 4: Plaintext Summary -->
+        <div class="format-card">
+          <div class="format-header">
+            <span class="format-pill txt">.TXT</span>
+            <span class="format-name">Structured Plaintext & Bullets</span>
+          </div>
+          <p class="format-desc">Clean, unbloated markdown & plaintext bullet points with decision logs and citation register.</p>
+          <button class="header-btn" id="btn-format-tab-txt" style="width: 100%; justify-content: center;">
+            Download Summary (.txt)
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab 3: Verbatim Grounding & Citations -->
+      <div class="tab-content" id="tab-citations">
+        <div class="grounding-score-badge" id="grounding-score-box">
+          <span class="grounding-num" id="grounding-score-num">96%</span>
+          <span class="grounding-label">Verbatim Grounding Score (High Fidelity)</span>
+        </div>
+        <div id="citations-container" style="display: flex; flex-direction: column; gap: 10px; margin-top: 12px;">
+          <!-- Rendered citation cards -->
+        </div>
+      </div>
+
+      <!-- Tab 4: Visuals, Diagrams & Diffusion Prompts -->
+      <div class="tab-content" id="tab-visuals">
+        <div class="section-sub-hdr">Procedural Vector Diagram</div>
+        <select id="select-diagram-type" class="theme-pill-select" style="width: 100%; margin-bottom: 10px;">
+          <option value="neural_web">Neural Knowledge Web</option>
+          <option value="architecture_blueprint">Architecture System Blueprint</option>
+          <option value="process_flow">Process Execution Flow</option>
+          <option value="metric_gauges">KPI Metric Radial Gauges</option>
+        </select>
+        <div id="visual-preview-container">
+          <!-- Rendered SVG preview -->
+        </div>
+        <div class="section-sub-hdr" style="margin-top: 14px;">Stable Diffusion / SDXL Prompt</div>
+        <div class="visual-prompt-box" id="diffusion-prompt-text" contenteditable="true">
+          <!-- Prompt text -->
+        </div>
+        <button class="header-btn" id="btn-generate-diffusion" style="width: 100%; justify-content: center; margin-top: 8px;">
+          Render with Local Diffusion
+        </button>
+      </div>
+
+      <!-- Tab 5: Quality Critic & Self-Improvement Loop -->
+      <div class="tab-content" id="tab-critic">
+        <div class="quality-audit-card">
+          <div class="quality-overall">
+            <span class="quality-score-lg" id="quality-overall-num">94</span>
+            <span class="quality-score-title">Overall Presentation Score</span>
+          </div>
+          <div class="quality-bars">
+            <div class="quality-metric-row"><span>Storytelling</span><span id="score-story">95%</span></div>
+            <div class="quality-metric-row"><span>Visual Quality</span><span id="score-visual">92%</span></div>
+            <div class="quality-metric-row"><span>Grounding</span><span id="score-grounding">96%</span></div>
+            <div class="quality-metric-row"><span>Readability</span><span id="score-readability">94%</span></div>
+            <div class="quality-metric-row"><span>Consistency</span><span id="score-consistency">95%</span></div>
+          </div>
+          <button class="header-btn primary" id="btn-auto-refine" style="width: 100%; justify-content: center; margin-top: 12px;">
+            AI Auto-Refine Deck
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab 6: Presenter Speaker Notes -->
+      <div class="tab-content" id="tab-notes">
+        <div class="section-sub-hdr">Presenter Speaker Script</div>
+        <textarea class="notes-textarea" id="notes-textarea" placeholder="Presenter talking points and transitions for this slide..."></textarea>
+      </div>
+    </aside>
+  </main>
+
+  <!-- 3. Multi-Source Knowledge Workspace Modal -->
+  <div class="modal-overlay" id="source-modal-overlay">
+    <div class="source-modal">
+      <div class="modal-header">
+        <span class="modal-title">Multi-Source Knowledge Workspace</span>
+        <button class="modal-close-btn" id="btn-close-source-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">Combine multiple chat threads, markdown research notes, and text documents into a unified presentation context.</p>
+        <div class="source-list" id="source-list">
+          <div class="source-item active">
+            <span class="source-tag">Active Chat</span>
+            <span class="source-name" id="modal-active-chat-title">Current Ingested Conversation</span>
+          </div>
+        </div>
+        <div class="add-source-section">
+          <label class="section-sub-hdr">Add Additional Research Notes / Text Document</label>
+          <input type="text" id="add-source-title" class="deck-title-input" style="width: 100%; margin-bottom: 8px;" placeholder="Document / Source Title (e.g. Technical Spec, PRD)">
+          <textarea id="add-source-text" class="notes-textarea" style="height: 110px;" placeholder="Paste additional research text, meeting minutes, or technical requirements here..."></textarea>
+          <button class="header-btn primary" id="btn-merge-source" style="margin-top: 8px; align-self: flex-start;">
+            + Add & Synthesize with Presentation
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Rehearsal Assistant Overlay -->
+  <div class="modal-overlay" id="rehearsal-overlay">
+    <div class="rehearsal-modal">
+      <div class="modal-header">
+        <span class="modal-title">Presentation Rehearsal Assistant</span>
+        <button class="modal-close-btn" id="btn-close-rehearsal">✕</button>
+      </div>
+      <div class="rehearsal-body">
+        <div class="rehearsal-timer-box">
+          <div class="timer-display" id="rehearsal-timer">00:00</div>
+          <div class="timer-controls">
+            <button class="header-btn primary" id="btn-timer-start">Start</button>
+            <button class="header-btn" id="btn-timer-pause">Pause</button>
+            <button class="header-btn" id="btn-timer-reset">Reset</button>
+          </div>
+          <div class="timer-target" id="timer-target-desc">Target Speaking Time: 45s for this slide</div>
+        </div>
+        <div class="rehearsal-script-box">
+          <div class="section-sub-hdr">Speaking Script & Prompts</div>
+          <p id="rehearsal-script-text" class="rehearsal-script-text">Presenter notes and talking points will appear here...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Fullscreen Presenter Mode Overlay -->
+  <div class="presenter-overlay" id="presenter-overlay">
+    <div class="presenter-slide-container" id="presenter-slide-container">
+      <!-- Fullscreen presentation slide -->
+    </div>
+    <div class="presenter-controls">
+      <button class="presenter-btn" id="pres-prev">Previous</button>
+      <span class="presenter-indicator" id="pres-indicator">Slide 1 of 8</span>
+      <button class="presenter-btn" id="pres-next">Next</button>
+      <button class="presenter-btn" id="pres-exit" style="color: var(--accent-pink-dark); margin-left: 10px;">Exit [Esc]</button>
+    </div>
+  </div>
+
+  <!-- 6. First-Run Interactive Onboarding Modal -->
+  <div class="onboarding-overlay" id="onboarding-overlay">
+    <div class="onboarding-modal">
+      <div class="onboarding-header">
+        <div class="onboarding-badge">DM</div>
+        <div class="onboarding-title-wrap">
+          <h2 class="onboarding-title">Welcome to DeckMind AI Studio ✨</h2>
+          <p class="onboarding-subtitle">Turn conversational chaos into executive presentation decks</p>
+        </div>
+      </div>
+      <div class="onboarding-body">
+        <div class="onboarding-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>One-Click Chat Capture</h4>
+            <p>On ChatGPT, Claude, Gemini, or DeepSeek, press <code>Alt + Shift + P</code> or click the floating HUD pill to instantly structure any chat thread.</p>
+          </div>
+        </div>
+        <div class="onboarding-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>12 Frameworks & Curated Luxury Themes</h4>
+            <p>Switch storytelling frameworks (Executive, Pitch Deck, Technical) and luxury palettes (Rose Cream, Noir & Blush, Nordic Slate) on the fly.</p>
+          </div>
+        </div>
+        <div class="onboarding-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Verbatim Grounding & Multi-Format Export</h4>
+            <p>Every slide cites source turns with 1-click teleportation. Export native 16:9 <code>.pptx</code>, <code>.docx</code>, <code>.xlsx</code>, or vector flowcharts.</p>
+          </div>
+        </div>
+        <div class="onboarding-privacy-badge">
+          🛡️ <strong>Zero-Trust Guarantee:</strong> 100% in-browser processing. Zero external cloud servers. API keys & secrets automatically redacted.
+        </div>
+      </div>
+      <div class="onboarding-footer">
+        <button class="header-btn primary retro-primary-btn" id="btn-dismiss-onboarding">Explore Presentation Studio</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Polite Milestone Review Banner -->
+  <div class="review-prompt-banner" id="review-prompt-banner" style="display: none;">
+    <div class="review-banner-left">
+      <span class="review-star-icon">⭐</span>
+      <div class="review-text-wrap">
+        <strong>Enjoying DeckMind AI?</strong>
+        <span>You've created multiple executive decks! If DeckMind saves you time, please share a quick rating on the Chrome Web Store to support independent, private tools.</span>
+      </div>
+    </div>
+    <div class="review-banner-actions">
+      <a href="https://chromewebstore.google.com/detail/deckmind-ai" target="_blank" rel="noopener noreferrer" class="review-btn primary" id="btn-review-store">Rate on Chrome Web Store ⭐⭐⭐⭐⭐</a>
+      <button class="review-btn secondary" id="btn-review-later">Remind Later</button>
+      <button class="review-btn dismiss" id="btn-review-dismiss" title="Dismiss">✕</button>
+    </div>
+  </div>
+
+  <script src="lib/jszip.min.js"></script>
+  <script src="lib/pptxgen.bundle.js"></script>
+  <script src="chat_parsers.js"></script>
+  <script src="deck_extractor.js"></script>
+  <script src="visual_engine.js"></script>
+  <script src="storyboard_engine.js"></script>
+  <script src="pptx_generator.js"></script>
+  <script src="export_engine.js"></script>
+  <script src="deck_studio.js"></script>
+</body>
+</html>

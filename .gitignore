@@ -1,0 +1,22 @@
+# Chrome Extension patterns
+*.crx
+*.pem
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDES
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencies & Build artifacts
+node_modules/
+dist/
+
+# Temporary files
+debug.log
+error.log

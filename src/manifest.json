@@ -1,0 +1,100 @@
+{
+  "manifest_version": 3,
+  "name": "DeckMind AI: AI Chat to PowerPoint & Slides",
+  "short_name": "DeckMind AI",
+  "version": "2.1.2",
+  "description": "Convert AI chat conversations into executive PowerPoint (.pptx) presentations, reports & visual diagrams. 100% private, 1-click.",
+  "minimum_chrome_version": "109",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "http://localhost:11434/*",
+    "http://127.0.0.1:11434/*",
+    "http://localhost:1234/*",
+    "http://127.0.0.1:1234/*",
+    "http://localhost:7860/*",
+    "http://127.0.0.1:7860/*",
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8188/*",
+    "http://127.0.0.1:8188/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.chatgpt.com/*",
+        "*://*.openai.com/*",
+        "*://*.claude.ai/*",
+        "*://*.gemini.google.com/*",
+        "*://*.aistudio.google.com/*",
+        "*://*.perplexity.ai/*",
+        "*://*.sarvam.ai/*",
+        "*://*.deepseek.com/*",
+        "*://*.copilot.microsoft.com/*",
+        "*://*.microsoftcopilot.com/*",
+        "*://*.copilot.bing.com/*",
+        "*://*.grok.com/*",
+        "*://*.x.com/*",
+        "*://*.mistral.ai/*",
+        "*://*.meta.ai/*",
+        "*://*.poe.com/*",
+        "http://localhost/*",
+        "http://127.0.0.1/*"
+      ],
+      "css": [
+        "hud.css"
+      ],
+      "js": [
+        "chat_parsers.js",
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "DeckMind AI — Generate PPT from AI Chat",
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "commands": {
+    "generate-deck": {
+      "suggested_key": {
+        "default": "Alt+Shift+P",
+        "mac": "Alt+Shift+P"
+      },
+      "description": "Generate PPT Presentation from Active AI Chat"
+    },
+    "open-deck-studio": {
+      "suggested_key": {
+        "default": "Alt+Shift+D",
+        "mac": "Alt+Shift+D"
+      },
+      "description": "Open DeckMind AI Presentation Studio"
+    }
+  }
+}

@@ -1,0 +1,298 @@
+/* DeckMind AI — Adaptive Stealth In-Page Action Dock (Zero Eye Strain Edition) */
+
+#deckmind-hud-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2147483647;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  user-select: none;
+  pointer-events: auto;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  touch-action: none;
+  opacity: 0.75;
+}
+
+#deckmind-hud-container:hover,
+#deckmind-hud-container.deckmind-expanded {
+  opacity: 1;
+}
+
+#deckmind-hud-container.deckmind-hud-dragging {
+  transition: none !important;
+  cursor: grabbing !important;
+  opacity: 1 !important;
+  transform: scale(1.02) !important;
+}
+
+/* =========================================================================
+ * 1. COMPACT / EXPANDABLE DOCK CONTAINER
+ * ========================================================================= */
+.deckmind-hud-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(24, 24, 27, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 6px 10px 6px 8px;
+  border-radius: 9999px;
+  color: #18181B;
+  font-size: 12px;
+  cursor: grab;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 480px;
+  overflow: hidden;
+}
+
+/* Sleek Dark Mode Adaptation (ChatGPT / Claude / Gemini Dark Mode) */
+@media (prefers-color-scheme: dark) {
+  .deckmind-hud-pill {
+    background: rgba(24, 24, 27, 0.88);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.2);
+    color: #F4F4F5;
+  }
+}
+
+/* Force Dark Mode Class if Parent Page is Dark */
+.deckmind-dark-mode .deckmind-hud-pill {
+  background: rgba(24, 24, 27, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 0 1px rgba(255, 255, 255, 0.2) !important;
+  color: #F4F4F5 !important;
+}
+
+.deckmind-hud-pill:hover {
+  border-color: #FB7185;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 0 16px rgba(251, 113, 133, 0.2);
+  transform: translateY(-1px);
+}
+
+.deckmind-dark-mode .deckmind-hud-pill:hover {
+  border-color: #FB7185 !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(251, 113, 133, 0.25) !important;
+}
+
+/* =========================================================================
+ * 2. COMPACT ORB STATE (When Collapsed)
+ * ========================================================================= */
+#deckmind-hud-container.deckmind-collapsed .deckmind-hud-pill {
+  padding: 4px;
+  gap: 0;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+}
+
+#deckmind-hud-container.deckmind-collapsed .deckmind-drag-grip,
+#deckmind-hud-container.deckmind-collapsed .deckmind-hud-label,
+#deckmind-hud-container.deckmind-collapsed .deckmind-hud-actions,
+#deckmind-hud-container.deckmind-collapsed .deckmind-hud-collapse-btn {
+  display: none !important;
+}
+
+#deckmind-hud-container.deckmind-collapsed .deckmind-hud-icon {
+  width: 28px;
+  height: 28px;
+  font-size: 10.5px;
+}
+
+/* Drag Grip */
+.deckmind-drag-grip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 2px 3px 2px 1px;
+  cursor: grab;
+  opacity: 0.35;
+  transition: opacity 0.2s ease;
+}
+
+.deckmind-hud-pill:hover .deckmind-drag-grip {
+  opacity: 0.75;
+}
+
+.deckmind-drag-dots {
+  display: flex;
+  gap: 2px;
+}
+
+.deckmind-drag-dot {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Brand Icon Badge */
+.deckmind-hud-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: #18181B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #FB7185;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.deckmind-hud-icon:hover {
+  transform: scale(1.08);
+}
+
+.deckmind-dark-mode .deckmind-hud-icon {
+  background: #27272A;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Label & Counter */
+.deckmind-hud-label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.deckmind-hud-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: inherit;
+}
+
+.deckmind-hud-counter {
+  font-size: 9.5px;
+  opacity: 0.65;
+  font-weight: 500;
+  font-family: monospace;
+}
+
+/* Action Buttons */
+.deckmind-hud-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 2px;
+  border-left: 1px solid rgba(128, 128, 128, 0.2);
+  padding-left: 6px;
+  cursor: default;
+}
+
+.deckmind-hud-btn {
+  background: rgba(251, 113, 133, 0.1);
+  border: 1px solid rgba(251, 113, 133, 0.3);
+  color: #BE185D;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  font-family: monospace;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.deckmind-dark-mode .deckmind-hud-btn {
+  background: rgba(251, 113, 133, 0.15);
+  border-color: rgba(251, 113, 133, 0.35);
+  color: #FDA4AF;
+}
+
+.deckmind-hud-btn:hover {
+  background: #FB7185;
+  color: #FFFFFF;
+  border-color: #FB7185;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(251, 113, 133, 0.4);
+}
+
+.deckmind-hud-btn.primary {
+  background: #18181B;
+  border: 1px solid #18181B;
+  color: #FFFFFF;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.deckmind-dark-mode .deckmind-hud-btn.primary {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #18181B;
+}
+
+.deckmind-hud-btn.primary:hover {
+  background: #FB7185;
+  border-color: #FB7185;
+  color: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(251, 113, 133, 0.4);
+}
+
+/* Quick Collapse / Toggle Button */
+.deckmind-hud-collapse-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.4;
+  cursor: pointer;
+  padding: 0 2px;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.deckmind-hud-collapse-btn:hover {
+  opacity: 1;
+  color: #FB7185;
+  transform: scale(1.15);
+}
+
+/* Toast notification */
+.deckmind-toast {
+  position: fixed;
+  bottom: 80px;
+  right: 24px;
+  z-index: 2147483647;
+  background: rgba(24, 24, 27, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(251, 113, 133, 0.4);
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 12px rgba(251, 113, 133, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.deckmind-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Teleport Message Highlight */
+.deckmind-highlighted-turn {
+  outline: 2px solid #FB7185 !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 25px rgba(251, 113, 133, 0.4) !important;
+  transition: all 0.3s ease !important;
+  border-radius: 8px !important;
+}

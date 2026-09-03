@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeckMind AI — Settings & Open-Source Orchestrator</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <!-- Header -->
+    <header class="options-header">
+      <div class="header-brand">
+        <div class="brand-icon-lg">DM</div>
+        <div>
+          <h1 class="brand-title">DeckMind AI Settings</h1>
+          <p class="brand-desc">Configure open-source LLMs, diffusion endpoints, themes, and privacy</p>
+        </div>
+      </div>
+      <button class="btn-save-all" id="btn-save-settings">Save Settings</button>
+    </header>
+
+    <!-- 1. Model Orchestration Engine -->
+    <section class="settings-section">
+      <h2 class="section-title">Open-Source LLM Orchestration</h2>
+      
+      <div class="setting-row">
+        <label class="setting-label">Primary Summarization Engine</label>
+        <p class="setting-desc">Choose between built-in zero-trust in-browser synthesis or local open-source models</p>
+        <select class="input-field" id="opt-engine">
+          <option value="in_browser" selected>In-Browser Zero-Trust Synthesizer (100% Client-Side, 0 Server)</option>
+          <option value="ollama">Local Ollama Service (http://localhost:11434)</option>
+          <option value="lmstudio">LM Studio Local Server (http://localhost:1234/v1)</option>
+          <option value="backend">Python FastAPI Companion Backend (http://localhost:8000)</option>
+        </select>
+      </div>
+
+      <div class="setting-row" id="ollama-config-block">
+        <label class="setting-label">Ollama Model Name</label>
+        <input type="text" class="input-field" id="opt-ollama-model" value="llama3.2" placeholder="e.g. llama3.2, mistral-nemo, deepseek-r1">
+        <div style="display: flex; align-items: center; margin-top: 6px;">
+          <button class="btn-test" id="btn-test-ollama">Test Ollama Connection</button>
+          <span class="test-status" id="status-ollama"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Visual & Diffusion Generation -->
+    <section class="settings-section">
+      <h2 class="section-title">Image Generation & Visual Diagrams</h2>
+
+      <div class="setting-row">
+        <label class="setting-label">Visual Synthesis Mode</label>
+        <p class="setting-desc">Generate procedural 16:9 SVG diagrams or integrate with local Stable Diffusion / SDXL</p>
+        <select class="input-field" id="opt-visual-mode">
+          <option value="procedural_svg" selected>Procedural 16:9 Luxury SVG Vector Art (Built-in, Instant)</option>
+          <option value="sd_webui">Local Stable Diffusion WebUI (AUTOMATIC1111 http://localhost:7860)</option>
+          <option value="comfy_ui">Local ComfyUI API (http://localhost:8188)</option>
+          <option value="backend_diffusers">Python Backend Diffusers Pipeline</option>
+        </select>
+      </div>
+
+      <div class="setting-row">
+        <label class="setting-label">Stable Diffusion Endpoint URL</label>
+        <input type="text" class="input-field" id="opt-sd-endpoint" value="http://localhost:7860" placeholder="http://localhost:7860">
+        <div style="display: flex; align-items: center; margin-top: 6px;">
+          <button class="btn-test" id="btn-test-sd">Test SD Connection</button>
+          <span class="test-status" id="status-sd"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Default Presentation Settings -->
+    <section class="settings-section">
+      <h2 class="section-title">Default Presentation Preferences</h2>
+
+      <div class="setting-row">
+        <label class="setting-label">Default Luxury Theme Palette</label>
+        <select class="input-field" id="opt-default-theme">
+          <option value="rose_cream" selected>Rose Cream Luxury (Cream, White, Black, Pink)</option>
+          <option value="noir_rose">Noir & Blush Pink (Dark Luxury)</option>
+          <option value="ivory_blush">Ivory & Ballet Pink (Soft Editorial)</option>
+          <option value="monochrome_chic">Monochrome & Rose Gold</option>
+          <option value="editorial">Warm Editorial (Thought Leadership)</option>
+          <option value="nordic">Nordic Slate & Cobalt</option>
+        </select>
+      </div>
+
+      <div class="setting-row">
+        <label class="setting-label">Default Slide Count</label>
+        <select class="input-field" id="opt-default-slides">
+          <option value="5">5 Slides (Quick Briefing)</option>
+          <option value="8" selected>8 Slides (Standard Executive Deck)</option>
+          <option value="10">10 Slides (Comprehensive Technical Review)</option>
+          <option value="12">12 Slides (Deep Dive Architectural Strategy)</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- 4. Privacy & Zero-Trust Security -->
+    <section class="settings-section">
+      <h2 class="section-title">Zero-Trust Privacy & Data Sanitization</h2>
+
+      <div class="toggle-switch">
+        <div>
+          <div class="setting-label">Automatic Secret & API Key Sanitizer</div>
+          <div class="setting-desc">Redact AWS keys, OpenAI/Anthropic tokens, and JWT credentials from chat threads</div>
+        </div>
+        <input type="checkbox" id="opt-sanitize-secrets" checked style="width: 20px; height: 20px; cursor: pointer;">
+      </div>
+
+      <div class="toggle-switch" style="border-top: 1px solid #1E293B; padding-top: 14px;">
+        <div>
+          <div class="setting-label">Zero External Network Calls Guarantee</div>
+          <div class="setting-desc">Enforce that no presentation data is ever transmitted to commercial cloud LLM providers</div>
+        </div>
+        <input type="checkbox" id="opt-strict-local" checked disabled style="width: 20px; height: 20px;">
+      </div>
+    </section>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
